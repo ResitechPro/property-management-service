@@ -1,7 +1,6 @@
 package com.resitechpro.usermanagmentservice.config.resolver;
 
 
-import com.resitechpro.usermanagmentservice.config.resolver.TenantResolver;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Component;
 

@@ -1,4 +1,4 @@
-package com.taskflow.config.provider;
+package com.resitechpro.usermanagmentservice.config.provider;
 
 import org.hibernate.engine.jdbc.connections.spi.MultiTenantConnectionProvider;
 import org.springframework.boot.autoconfigure.orm.jpa.HibernatePropertiesCustomizer;

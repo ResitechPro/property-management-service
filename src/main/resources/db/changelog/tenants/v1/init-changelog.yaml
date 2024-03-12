@@ -1,0 +1,441 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1710240957210-1
+      author: Youcode (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_buildings
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: label
+                  type: VARCHAR(255)
+              - column:
+                  name: description
+                  type: VARCHAR(255)
+              - column:
+                  name: number_floors
+                  type: INT
+              - column:
+                  name: residence_id
+                  type: BIGINT
+            tableName: buildings
+  - changeSet:
+      id: 1710240957210-2
+      author: Youcode (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_group_permission
+                  name: group_id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_group_permission
+                  name: permission_id
+                  type: BIGINT
+            tableName: group_permission
+  - changeSet:
+      id: 1710240957210-3
+      author: Youcode (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_groups
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+              - column:
+                  name: deadline
+                  type: DATETIME
+            tableName: groups
+  - changeSet:
+      id: 1710240957210-4
+      author: Youcode (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_permissions
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: subject
+                  type: VARCHAR(255)
+              - column:
+                  name: action
+                  type: VARCHAR(255)
+              - column:
+                  name: description
+                  type: VARCHAR(255)
+            tableName: permissions
+  - changeSet:
+      id: 1710240957210-5
+      author: Youcode (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_properties
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: label
+                  type: VARCHAR(255)
+              - column:
+                  name: description
+                  type: VARCHAR(255)
+              - column:
+                  name: property_type
+                  type: SMALLINT
+              - column:
+                  name: surface
+                  type: BIGINT
+              - column:
+                  name: number_rooms
+                  type: INT
+              - column:
+                  name: number_bathrooms
+                  type: INT
+              - column:
+                  name: number_bedrooms
+                  type: INT
+              - column:
+                  name: number_windows
+                  type: INT
+              - column:
+                  name: floor_number
+                  type: VARCHAR(255)
+              - column:
+                  name: rent_value
+                  type: VARCHAR(255)
+              - column:
+                  name: building_id
+                  type: BIGINT
+            tableName: properties
+  - changeSet:
+      id: 1710240957210-6
+      author: Youcode (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_residences
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: label
+                  type: VARCHAR(255)
+              - column:
+                  name: description
+                  type: VARCHAR(255)
+              - column:
+                  name: location
+                  type: VARCHAR(255)
+              - column:
+                  name: surface
+                  type: BIGINT
+              - column:
+                  name: longitude
+                  type: BIGINT
+              - column:
+                  name: latitude
+                  type: BIGINT
+            tableName: residences
+  - changeSet:
+      id: 1710240957210-7
+      author: Youcode (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_role_permission
+                  name: permission_id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_role_permission
+                  name: role_id
+                  type: BIGINT
+            tableName: role_permission
+  - changeSet:
+      id: 1710240957210-8
+      author: Youcode (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_roles
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+            tableName: roles
+  - changeSet:
+      id: 1710240957210-9
+      author: Youcode (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_user_group
+                  name: group_id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_user_group
+                  name: user_id
+                  type: BIGINT
+            tableName: user_group
+  - changeSet:
+      id: 1710240957210-10
+      author: Youcode (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_user_role
+                  name: role_id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_user_role
+                  name: user_id
+                  type: BIGINT
+            tableName: user_role
+  - changeSet:
+      id: 1710240957210-11
+      author: Youcode (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_users
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: first_name
+                  type: VARCHAR(255)
+              - column:
+                  name: last_name
+                  type: VARCHAR(255)
+              - column:
+                  name: organization_name
+                  type: VARCHAR(255)
+              - column:
+                  name: personal_email
+                  type: VARCHAR(255)
+              - column:
+                  name: email
+                  type: VARCHAR(255)
+              - column:
+                  name: password
+                  type: VARCHAR(255)
+              - column:
+                  name: phone
+                  type: VARCHAR(255)
+            tableName: users
+  - changeSet:
+      id: 1710240957210-12
+      author: Youcode (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addUniqueConstraint:
+            columnNames: name
+            constraintName: uc_groups_name
+            tableName: groups
+  - changeSet:
+      id: 1710240957210-13
+      author: Youcode (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addUniqueConstraint:
+            columnNames: name
+            constraintName: uc_roles_name
+            tableName: roles
+  - changeSet:
+      id: 1710240957210-14
+      author: Youcode (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addUniqueConstraint:
+            columnNames: personal_email
+            constraintName: uc_users_personal_email
+            tableName: users
+  - changeSet:
+      id: 1710240957210-15
+      author: Youcode (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: residence_id
+            baseTableName: buildings
+            constraintName: FK_BUILDINGS_ON_RESIDENCE
+            referencedColumnNames: id
+            referencedTableName: residences
+  - changeSet:
+      id: 1710240957210-16
+      author: Youcode (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: building_id
+            baseTableName: properties
+            constraintName: FK_PROPERTIES_ON_BUILDING
+            referencedColumnNames: id
+            referencedTableName: buildings
+  - changeSet:
+      id: 1710240957210-17
+      author: Youcode (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: permission_id
+            baseTableName: group_permission
+            constraintName: fk_groper_on_permission
+            referencedColumnNames: id
+            referencedTableName: permissions
+  - changeSet:
+      id: 1710240957210-18
+      author: Youcode (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: group_id
+            baseTableName: group_permission
+            constraintName: fk_groper_on_permission_group
+            referencedColumnNames: id
+            referencedTableName: groups
+  - changeSet:
+      id: 1710240957210-19
+      author: Youcode (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: permission_id
+            baseTableName: role_permission
+            constraintName: fk_rolper_on_permission
+            referencedColumnNames: id
+            referencedTableName: permissions
+  - changeSet:
+      id: 1710240957210-20
+      author: Youcode (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: role_id
+            baseTableName: role_permission
+            constraintName: fk_rolper_on_role
+            referencedColumnNames: id
+            referencedTableName: roles
+  - changeSet:
+      id: 1710240957210-21
+      author: Youcode (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: group_id
+            baseTableName: user_group
+            constraintName: fk_usegro_on_permission_group
+            referencedColumnNames: id
+            referencedTableName: groups
+  - changeSet:
+      id: 1710240957210-22
+      author: Youcode (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: user_id
+            baseTableName: user_group
+            constraintName: fk_usegro_on_user
+            referencedColumnNames: id
+            referencedTableName: users
+  - changeSet:
+      id: 1710240957210-23
+      author: Youcode (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: role_id
+            baseTableName: user_role
+            constraintName: fk_user_role_on_role
+            referencedColumnNames: id
+            referencedTableName: roles
+  - changeSet:
+      id: 1710240957210-24
+      author: Youcode (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: user_id
+            baseTableName: user_role
+            constraintName: fk_user_role_on_user
+            referencedColumnNames: id
+            referencedTableName: users
+
