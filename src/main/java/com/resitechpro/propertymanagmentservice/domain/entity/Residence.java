@@ -1,13 +1,15 @@
 package com.resitechpro.propertymanagmentservice.domain.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
 @Entity
 @Table(name = "residences")
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Residence {
     @Id
     private String id;

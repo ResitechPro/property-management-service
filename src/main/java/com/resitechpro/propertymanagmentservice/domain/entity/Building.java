@@ -12,7 +12,7 @@ import lombok.*;
 @Table(name = "buildings")
 public class Building {
     @Id
-    private Long id;
+    private String id;
     private String label;
     private String description;
     private Integer numberFloors;

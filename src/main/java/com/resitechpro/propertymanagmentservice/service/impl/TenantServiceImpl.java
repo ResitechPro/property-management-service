@@ -1,12 +1,8 @@
 package com.resitechpro.propertymanagmentservice.service.impl;
 
 import com.resitechpro.propertymanagmentservice.domain.entity.Tenant;
-import com.resitechpro.propertymanagmentservice.domain.mapper.UserMapper;
 import com.resitechpro.propertymanagmentservice.exception.customexceptions.ValidationException;
-import com.resitechpro.propertymanagmentservice.repository.PermissionRepository;
-import com.resitechpro.propertymanagmentservice.repository.RoleRepository;
 import com.resitechpro.propertymanagmentservice.repository.TenantRepository;
-import com.resitechpro.propertymanagmentservice.repository.UserRepository;
 import com.resitechpro.propertymanagmentservice.service.TenantService;
 import com.resitechpro.propertymanagmentservice.utils.ErrorMessage;
 import liquibase.integration.spring.SpringLiquibase;

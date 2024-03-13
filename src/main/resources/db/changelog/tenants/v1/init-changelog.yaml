@@ -12,7 +12,7 @@ databaseChangeLog:
                     primaryKey: true
                     primaryKeyName: pk_buildings
                   name: id
-                  type: BIGINT
+                  type: VARCHAR(255)
               - column:
                   name: label
                   type: VARCHAR(255)
@@ -139,7 +139,7 @@ databaseChangeLog:
                   type: VARCHAR(255)
               - column:
                   name: building_id
-                  type: BIGINT
+                  type: VARCHAR(255)
             tableName: properties
   - changeSet:
       id: 1710335183197-6
