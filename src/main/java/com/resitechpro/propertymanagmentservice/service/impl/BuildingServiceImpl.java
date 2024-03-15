@@ -1,9 +1,12 @@
 package com.resitechpro.propertymanagmentservice.service.impl;
 
 import com.resitechpro.propertymanagmentservice.domain.entity.Building;
+import com.resitechpro.propertymanagmentservice.domain.entity.Image;
+import com.resitechpro.propertymanagmentservice.domain.entity.Property;
 import com.resitechpro.propertymanagmentservice.domain.entity.Residence;
 import com.resitechpro.propertymanagmentservice.exception.customexceptions.ValidationException;
 import com.resitechpro.propertymanagmentservice.repository.BuildingRepository;
+import com.resitechpro.propertymanagmentservice.repository.ImageRepository;
 import com.resitechpro.propertymanagmentservice.repository.ResidenceRepository;
 import com.resitechpro.propertymanagmentservice.service.BuildingService;
 import com.resitechpro.propertymanagmentservice.utils.ErrorMessage;
@@ -20,17 +23,19 @@ public class BuildingServiceImpl implements BuildingService {
     private final UuidClient uuidClient;
     private final BuildingRepository buildingRepository;
     private final ResidenceRepository residenceRepository;
+    private final ImageRepository imageRepository;
 
 
     public BuildingServiceImpl
     (
             UuidClient uuidClient,
             BuildingRepository buildingRepository,
-            ResidenceRepository residenceRepository
-    ) {
+            ResidenceRepository residenceRepository,
+            ImageRepository imageRepository) {
         this.uuidClient = uuidClient;
         this.buildingRepository = buildingRepository;
         this.residenceRepository = residenceRepository;
+        this.imageRepository = imageRepository;
     }
     @Override
     public List<Building> getAllBuildings() {
@@ -60,5 +65,20 @@ public class BuildingServiceImpl implements BuildingService {
         String buildingId = uuidClient.generateUuid().getUuid();
         building.setId(buildingId);
         return buildingRepository.save(building);
+    }
+    @Override
+    public void attachImage(String buildingId, String imageUrl) {
+        Optional<Building> optionalBuilding = buildingRepository.findById(buildingId);
+        optionalBuilding.ifPresent(building -> {
+            Image imageToAttach = Image.builder()
+                    .url(imageUrl)
+                    .build();
+            List<Image> propertyImages = building.getImages();
+            propertyImages.add(
+                    imageRepository.save(imageToAttach)
+            );
+            building.setImages(propertyImages);
+            buildingRepository.save(building);
+        });
     }
 }

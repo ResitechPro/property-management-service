@@ -4,6 +4,8 @@ import com.resitechpro.propertymanagmentservice.domain.enums.PropertyType;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Entity
 @Builder
 @NoArgsConstructor
@@ -28,4 +30,7 @@ public class Property {
     @ManyToOne
     @JoinColumn(name = "building_id")
     private Building building;
+
+    @OneToMany
+    private List<Image> images;
 }

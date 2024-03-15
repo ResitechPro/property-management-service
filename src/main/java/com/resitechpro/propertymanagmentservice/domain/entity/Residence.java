@@ -3,6 +3,8 @@ package com.resitechpro.propertymanagmentservice.domain.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Getter
 @Setter
 @Entity
@@ -19,5 +21,8 @@ public class Residence {
     private Long surface;
     private Long longitude;
     private Long latitude;
+
+    @OneToMany
+    private List<Image> images;
 
 }

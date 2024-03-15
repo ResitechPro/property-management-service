@@ -3,6 +3,8 @@ package com.resitechpro.propertymanagmentservice.domain.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Getter
 @Setter
 @Entity
@@ -20,5 +22,8 @@ public class Building {
     @ManyToOne
     @JoinColumn(name = "residence_id")
     private Residence residence;
+
+    @OneToMany
+    private List<Image> images;
 
 }

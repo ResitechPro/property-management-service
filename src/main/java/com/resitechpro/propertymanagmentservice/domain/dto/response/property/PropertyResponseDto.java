@@ -1,10 +1,12 @@
 package com.resitechpro.propertymanagmentservice.domain.dto.response.property;
 
 import com.resitechpro.propertymanagmentservice.domain.dto.response.building.BuildingResponseDto;
+import com.resitechpro.propertymanagmentservice.domain.dto.response.image.ImageResponseDto;
 import com.resitechpro.propertymanagmentservice.domain.enums.PropertyType;
 import lombok.*;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * DTO for {@link com.resitechpro.propertymanagmentservice.domain.entity.Property}
@@ -27,4 +29,5 @@ public class PropertyResponseDto implements Serializable {
     private String floorNumber;
     private String rentValue;
     private BuildingResponseDto building;
+    private List<ImageResponseDto> images;
 }

@@ -1,8 +1,10 @@
 package com.resitechpro.propertymanagmentservice.domain.dto.response.residence;
 
+import com.resitechpro.propertymanagmentservice.domain.dto.response.image.ImageResponseDto;
 import lombok.*;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Builder
 @NoArgsConstructor
@@ -17,4 +19,5 @@ public class ResidenceResponseDto implements Serializable {
     private  Long surface;
     private  Long longitude;
     private  Long latitude;
+    private List<ImageResponseDto> images;
 }

@@ -31,3 +31,16 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka
+aws:
+  access:
+    key: ${AWS_ACCESS_KEY:AKIA5RGPWXNPZ5OGWOCE}
+  secret:
+    key: ${AWS_SECRET_KEY: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}
+  s3:
+    bucket: resitechbucket
+    region: eu-north-1
+logging:
+  level:
+    org:
+      springframework:
+        web: TRACE

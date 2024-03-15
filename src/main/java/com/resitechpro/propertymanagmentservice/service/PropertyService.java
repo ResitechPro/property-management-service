@@ -14,4 +14,6 @@ public interface PropertyService {
     List<Property> getPropertiesByBuildingLabel(String buildingLabel);
 
     Property createProperty(Property property) throws ValidationException;
+
+    void attachImage(String propertyId, String imageUrl);
 }

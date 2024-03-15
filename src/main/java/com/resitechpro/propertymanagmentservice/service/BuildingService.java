@@ -12,4 +12,6 @@ public interface BuildingService {
     List<Building> getAllBuildings();
 
     Building createBuilding(Building building) throws ValidationException;
+
+    void attachImage(String buildingId, String imageUrl);
 }

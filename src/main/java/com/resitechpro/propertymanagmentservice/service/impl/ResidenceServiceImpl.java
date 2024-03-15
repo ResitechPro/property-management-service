@@ -1,7 +1,10 @@
 package com.resitechpro.propertymanagmentservice.service.impl;
 
+import com.resitechpro.propertymanagmentservice.domain.entity.Building;
+import com.resitechpro.propertymanagmentservice.domain.entity.Image;
 import com.resitechpro.propertymanagmentservice.domain.entity.Residence;
 import com.resitechpro.propertymanagmentservice.exception.customexceptions.ValidationException;
+import com.resitechpro.propertymanagmentservice.repository.ImageRepository;
 import com.resitechpro.propertymanagmentservice.repository.ResidenceRepository;
 import com.resitechpro.propertymanagmentservice.service.ResidenceService;
 import com.resitechpro.propertymanagmentservice.utils.ErrorMessage;
@@ -10,17 +13,21 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class ResidenceServiceImpl implements ResidenceService {
 
     private final UuidClient uuidClient;
     private final ResidenceRepository residenceRepository;
+    private final ImageRepository imageRepository;
 
     public ResidenceServiceImpl(UuidClient uuidClient,
-                                ResidenceRepository residenceRepository) {
+                                ResidenceRepository residenceRepository,
+                                ImageRepository imageRepository) {
         this.uuidClient = uuidClient;
         this.residenceRepository = residenceRepository;
+        this.imageRepository = imageRepository;
     }
     @Override
     public List<Residence> getAllResidences() {
@@ -48,5 +55,21 @@ public class ResidenceServiceImpl implements ResidenceService {
         String residenceId = uuidClient.generateUuid().getUuid();
         residence.setId(residenceId);
         return residenceRepository.save(residence);
+    }
+
+    @Override
+    public void attachImage(String residenceId, String imageUrl) {
+        Optional<Residence> optionalResidence = residenceRepository.findById(residenceId);
+        optionalResidence.ifPresent(residence -> {
+            Image imageToAttach = Image.builder()
+                    .url(imageUrl)
+                    .build();
+            List<Image> propertyImages = residence.getImages();
+            propertyImages.add(
+                    imageRepository.save(imageToAttach)
+            );
+            residence.setImages(propertyImages);
+            residenceRepository.save(residence);
+        });
     }
 }
