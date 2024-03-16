@@ -27,6 +27,8 @@ spring:
   liquibase:
     enabled: true
     change-log: classpath:db/changelog/public/db.public.changelog-master.yml
+  kafka:
+    bootstrap-servers: localhost:9092
 eureka:
   client:
     service-url:
