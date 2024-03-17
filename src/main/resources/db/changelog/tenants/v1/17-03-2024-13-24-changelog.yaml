@@ -1,0 +1,24 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1710682421197-1
+      author: Youcode (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  name: owner_id
+                  type: VARCHAR(255)
+            tableName: residences
+  - changeSet:
+      id: 1710682421197-2
+      author: Youcode (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: owner_id
+            baseTableName: residences
+            constraintName: FK_RESIDENCES_ON_OWNER
+            referencedColumnNames: id
+            referencedTableName: users
+

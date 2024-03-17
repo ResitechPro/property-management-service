@@ -19,7 +19,6 @@ spring:
         format_sql: true
         use_sql_comments: true
   datasource:
-    #url: jdbc:postgresql://db:5432/authentification # use this if you want to run the app in docker along with the db container
     url: jdbc:postgresql://localhost:5432/property_management # use this if you want to run the app locally , if no postgresql installed , use docker-compose in _resources/docker
     username: idder
     password: idderjamh
@@ -46,3 +45,4 @@ logging:
     org:
       springframework:
         web: TRACE
+    liquibase: TRACE

@@ -24,6 +24,9 @@ public class User {
     private String password;
     private String phone;
 
+    @OneToOne
+    private Image image;
+
 
 
     @ManyToMany(fetch = FetchType.EAGER)

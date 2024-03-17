@@ -25,4 +25,7 @@ public class Residence {
     @OneToMany
     private List<Image> images;
 
+    @ManyToOne
+    private User owner;
+
 }

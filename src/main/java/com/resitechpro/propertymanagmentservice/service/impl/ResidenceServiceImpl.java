@@ -1,11 +1,12 @@
 package com.resitechpro.propertymanagmentservice.service.impl;
 
-import com.resitechpro.propertymanagmentservice.domain.entity.Building;
 import com.resitechpro.propertymanagmentservice.domain.entity.Image;
 import com.resitechpro.propertymanagmentservice.domain.entity.Residence;
+import com.resitechpro.propertymanagmentservice.domain.entity.User;
 import com.resitechpro.propertymanagmentservice.exception.customexceptions.ValidationException;
 import com.resitechpro.propertymanagmentservice.repository.ImageRepository;
 import com.resitechpro.propertymanagmentservice.repository.ResidenceRepository;
+import com.resitechpro.propertymanagmentservice.repository.UserRepository;
 import com.resitechpro.propertymanagmentservice.service.ResidenceService;
 import com.resitechpro.propertymanagmentservice.utils.ErrorMessage;
 import com.resitechpro.propertymanagmentservice.web.feign.UuidClient;
@@ -22,12 +23,18 @@ public class ResidenceServiceImpl implements ResidenceService {
     private final ResidenceRepository residenceRepository;
     private final ImageRepository imageRepository;
 
-    public ResidenceServiceImpl(UuidClient uuidClient,
-                                ResidenceRepository residenceRepository,
-                                ImageRepository imageRepository) {
+    private final UserRepository userRepository;
+
+    public ResidenceServiceImpl(
+            UuidClient uuidClient,
+            ResidenceRepository residenceRepository,
+            ImageRepository imageRepository,
+            UserRepository userRepository
+    ) {
         this.uuidClient = uuidClient;
         this.residenceRepository = residenceRepository;
         this.imageRepository = imageRepository;
+        this.userRepository = userRepository;
     }
     @Override
     public List<Residence> getAllResidences() {
@@ -52,6 +59,7 @@ public class ResidenceServiceImpl implements ResidenceService {
                             .build()
             );
         if(!errors.isEmpty()) throw new ValidationException(errors);
+        userRepository.findByRoles_name().ifPresent(residence::setOwner);
         String residenceId = uuidClient.generateUuid().getUuid();
         residence.setId(residenceId);
         return residenceRepository.save(residence);
