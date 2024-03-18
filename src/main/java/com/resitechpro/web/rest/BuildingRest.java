@@ -19,7 +19,7 @@ import java.io.IOException;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/buildings")
+@RequestMapping("/api/v1/pms/buildings")
 public class BuildingRest {
 
     private final BuildingService buildingService;

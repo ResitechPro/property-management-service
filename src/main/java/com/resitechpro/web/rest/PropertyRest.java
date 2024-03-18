@@ -20,7 +20,7 @@ import java.io.IOException;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/properties")
+@RequestMapping("/api/v1/pms/properties")
 public class PropertyRest {
 
     private final PropertyService propertyService;
