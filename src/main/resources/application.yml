@@ -28,6 +28,10 @@ spring:
     change-log: classpath:db/changelog/public/db.public.changelog-master.yml
   kafka:
     bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
 eureka:
   client:
     service-url:
