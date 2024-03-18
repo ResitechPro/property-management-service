@@ -1,5 +1,6 @@
 package com.resitechpro.propertymanagmentservice.domain.entity;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.resitechpro.propertymanagmentservice.domain.enums.PropertyType;
 import jakarta.persistence.*;
 import lombok.*;
@@ -33,4 +34,14 @@ public class Property {
 
     @OneToMany
     private List<Image> images;
+
+    @Override
+    public String toString() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+            return objectMapper.writeValueAsString(this);
+        } catch (Exception e) {
+            return super.toString();
+        }
+    }
 }

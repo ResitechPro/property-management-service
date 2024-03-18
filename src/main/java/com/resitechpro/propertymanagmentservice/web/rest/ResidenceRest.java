@@ -3,6 +3,7 @@ package com.resitechpro.propertymanagmentservice.web.rest;
 import com.resitechpro.propertymanagmentservice.cloud.aws.service.S3service;
 import com.resitechpro.propertymanagmentservice.domain.dto.request.residence.RequestResidenceDto;
 import com.resitechpro.propertymanagmentservice.domain.dto.response.residence.ResidenceResponseDto;
+import com.resitechpro.propertymanagmentservice.domain.entity.Residence;
 import com.resitechpro.propertymanagmentservice.domain.mapper.ResidenceMapper;
 import com.resitechpro.propertymanagmentservice.exception.customexceptions.ValidationException;
 import com.resitechpro.propertymanagmentservice.service.ResidenceService;
