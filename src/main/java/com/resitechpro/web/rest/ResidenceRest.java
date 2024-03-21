@@ -60,6 +60,14 @@ public class ResidenceRest {
         return ResponseEntity.ok(response);
     }
 
+    @GetMapping(path = "/labels")
+    public ResponseEntity<Response<List<String>>> getResidenceLabels() {
+        Response<List<String>> response = new Response<>();
+        response.setResult(residenceService.getResidenceLabels());
+        response.setMessage("Residence labels retrieved successfully");
+        return ResponseEntity.ok(response);
+    }
+
     @PostMapping(path = "/{residenceId}/upload", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
     public ResponseEntity<Response<Boolean>> uploadResidenceImage(@PathVariable String residenceId, @RequestParam("file") MultipartFile file) throws IOException,ValidationException {
         Response<Boolean> response = new Response<>();

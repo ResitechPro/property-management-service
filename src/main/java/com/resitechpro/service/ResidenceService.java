@@ -14,4 +14,6 @@ public interface ResidenceService {
     Residence createResidence(Residence residence) throws ValidationException;
 
     Residence attachImage(String residenceId, String imageUrl) throws ValidationException;
+
+    List<String> getResidenceLabels();
 }

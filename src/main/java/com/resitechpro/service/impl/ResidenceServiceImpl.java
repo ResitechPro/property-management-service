@@ -87,4 +87,10 @@ public class ResidenceServiceImpl implements ResidenceService {
                 )
         );
     }
+    @Override
+    public List<String> getResidenceLabels() {
+        return residenceRepository.findAll().stream()
+                .map(Residence::getLabel)
+                .toList();
+    }
 }
