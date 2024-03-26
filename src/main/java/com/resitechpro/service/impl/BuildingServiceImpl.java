@@ -27,10 +27,11 @@ public class BuildingServiceImpl implements BuildingService {
 
     public BuildingServiceImpl
     (
-            UuidClient uuidClient,
-            BuildingRepository buildingRepository,
-            ResidenceRepository residenceRepository,
-            ImageRepository imageRepository) {
+        UuidClient uuidClient,
+        BuildingRepository buildingRepository,
+        ResidenceRepository residenceRepository,
+        ImageRepository imageRepository
+    ) {
         this.uuidClient = uuidClient;
         this.buildingRepository = buildingRepository;
         this.residenceRepository = residenceRepository;
