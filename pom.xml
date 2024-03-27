@@ -127,6 +127,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>property-management-service</finalName>
 	</build>
 
 </project>
